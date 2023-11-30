@@ -21,4 +21,5 @@ path = sys.argv[1]
 suite = unittest.TestSuite()
 suite.addTest(Test('test_calc', path))
 ret = unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful()
-sys.exit(ret)
+if not ret:
+    raise Exception
